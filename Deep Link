@@ -1,0 +1,26 @@
+* 특정 콘텐츠에 직접 도달하는 모든 링크
+
+1. URL schemes
+  - schemes(스키마) : 외부에서 자신의 앱에 접근할 수 있도록 하나의 통로를 열어주는 역활을 한다.
+  
+  androidmanifest 파일에 외부에서 호출할 액티비티의 속성으로 인텐트 필터를 추가한다.
+  activity android:name=".MainActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:host="action" android:scheme="blackjinapp" />
+    </intent-filter>
+
+</activity>
+  
+
+
+2. Universal Link - 앱이 설치 안되어 있으면 AppStore로 이동한다. 
