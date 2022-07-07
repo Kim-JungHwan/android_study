@@ -1,0 +1,2 @@
+* 디자인을 할 때 layout_editor_absoluteX를 사용하는 것을 지양해야한다. 
+ConstraintLayout은 위젯을 상대적인 위치에 배치를 하는데 layout_editor_absoluteX을 사용해 위치를 지정할 경우 디바이스의 크기다 달라지면 원치 않은 위치로 배치 되기 때문이다.
