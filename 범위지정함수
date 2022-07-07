@@ -1,0 +1,48 @@
+* 범위지정함수
+let
+run
+with
+apply
+also
+
+* 범위지정함수 활용
+import kotlin.random.Random
+
+open class BaseSample {
+
+    open  fun somethingProcess() {
+        println("somethingProcess - base")
+    }
+}
+
+open class SampleClass : BaseSample(){
+
+    fun sampleMethod() {
+        val  sampleClassA = SampleA()
+
+        with(sampleClassA) {
+            // sampleClassA의 somethingProcess 가 아닌 현재 class 의 somethingProcess를 사용하고자 하면 어떻게 해야 할까요?
+            somethingProcess()
+            this@SampleClass.somethingProcess()
+        }
+
+        somethingProcess()
+    }
+
+    override fun somethingProcess() {
+        println("somethingProcess - SampleClass")
+    }
+    fun somethingProcess(ggg: Int){
+        
+    }
+
+    class SampleA : SampleClass() {
+        override fun somethingProcess() {
+            println("somethingProcess - SampleA")
+        }
+    }
+
+}
+
+print(SampleClass().sampleMethod())
+
