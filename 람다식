@@ -1,0 +1,10 @@
+람다식(Lambda Expression)이란? 이름이 없어도 함수 역할을 하는 익명함수의 하나의 형태.
+
+//생략되지 않은 전체 표현
+val multi: (Int, Int) -> Int ={x:Int, y:Int -> x * y}
+
+//선언 자료형 생략
+val multi: {x:Int, y:Int -> x * y}
+
+//람다식 매개변수 자료형의 생략
+val multi: (Int, Int) -> Int = {x,y -> x * y}
