@@ -1,0 +1,31 @@
+객체로 취급되는 함수를 의미함. 
+ - 일급함수는 함수가 객체로 취급될 수 있다.
+  아래 코드에서 변수 hello에 hello world를 리턴하는 함수를 할당할 수 있습니다.
+  val hello: () -> String = {"hello world"}
+ 
+ - 일급함수는 함수 객체를 인자로 넘길 수 있어야 한다. 
+  아래 코드에서 printHello는 인자로 스트링을 리턴하는 함수를 받고 있습니다. main을 보시면 printHello는 hello를 인자로 넘길 수 있습니다.
+
+  val hello: () -> String = {"hello world"}
+  fun printHello(func: ()->String) {
+     print("${func()}")
+  }
+  
+  fun main(args: Array<String>) {
+      printHello(hello)
+  }
+  
+ - 일급함수는 함수 객체를 함수의 결과로 리턴할 수 있습니다.
+  아래 코드에서 returnHello는 리턴 값으로 스트링을 리턴하는 함수를 리턴합니다. main에서는 이 함수를 받아 호출하여 hello world라는 스트링을 출력했습니다.
+  
+  val hello: () -> String = {"hello world"}
+  fun returnHello(hello: () -> String): () -> String {
+     return this.hello
+  } 
+  
+  fun main(args: Array<String>) {
+     val returned: ()->String = returnHello(hello)
+     print("${returned()}")
+  }
+
+언어가 일급함수를 지워한다는 것은 고차함수를 사용할 수 있다는 것과 같다. 
